@@ -1,0 +1,45 @@
+import React, { useState } from 'react';
+
+const DateCounter = () => {
+  const startDate = new Date('2023-12-01');
+  const endDate = new Date('2023-12-23');
+
+  const calculateDays = () => {
+    // Calculate the difference in milliseconds
+    const difference = endDate - startDate;
+
+    // Convert milliseconds to days
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24) +1);
+
+    return days;
+  };
+
+  return (
+    <div>
+      <p>Start Date: {startDate.toDateString()}</p>
+      <p>End Date: {endDate.toDateString()}</p>
+      <p>Number of days between: {calculateDays()} days</p>
+    </div>
+  );
+};
+
+export default DateCounter;
+
+
+
+
+const originalDateString = "Wed Dec 27 2023 05:30:00 GMT+0530 (India Standard Time)";
+
+// Create a new Date object from the original string
+const originalDate = new Date(originalDateString);
+
+// Extract day, month, and year components from the date
+const day = originalDate.getDate();
+const month = originalDate.getMonth() + 1; // Months are zero-based, so add 1
+const year = originalDate.getFullYear();
+
+// Create a new formatted date string
+const formattedDateString = `${day < 10 ? '0' : ''}${day}-${month < 10 ? '0' : ''}${month}-${year}`;
+
+// Log the formatted date string
+console.log(formattedDateString);
